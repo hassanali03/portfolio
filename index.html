@@ -1,1930 +1,795 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Hassan Ali | Satellite Technology Engineer</title>
-
-<meta name="description" content="Hassan Ali - Satellite Technology Engineer specializing in CubeSat communications, RF systems, satellite link analysis and spacecraft operations.">
-<meta name="author" content="Hassan Ali">
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hassan Ali | Spacecraft Engineer</title>
 <style>
-/* =========================================================
-   HASSAN ALI - SPACE TECHNOLOGY PORTFOLIO
-   ========================================================= */
+  :root {
+    --navy:   #0a1628;
+    --blue:   #0d3b6e;
+    --accent: #1a7fd4;
+    --gold:   #f0a500;
+    --light:  #e8f0f8;
+    --white:  #ffffff;
+    --text:   #1a2332;
+    --muted:  #5a6a7a;
+    --card:   #ffffff;
+    --border: #dde6f0;
+  }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-html {
-    scroll-behavior: smooth;
-}
+  html { scroll-behavior:smooth; }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #050b16;
-    color: #e8eef7;
-    line-height: 1.7;
-    overflow-x: hidden;
-}
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+  }
 
-/* ---------- Background ---------- */
+  /* ── NAV ── */
+  nav {
+    position: fixed; top:0; width:100%; z-index:100;
+    background: rgba(10,22,40,0.96);
+    backdrop-filter: blur(8px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 6%; height: 60px;
+    border-bottom: 1px solid rgba(26,127,212,0.3);
+  }
+  .nav-logo {
+    color: var(--white); font-size: 1.1rem; font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .nav-logo span { color: var(--accent); }
+  nav ul { list-style:none; display:flex; gap:28px; }
+  nav ul a {
+    color: rgba(255,255,255,0.8); text-decoration:none;
+    font-size: 0.85rem; letter-spacing:0.06em; text-transform:uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--accent); }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background:
-        radial-gradient(circle at 15% 20%, rgba(30,120,255,0.12), transparent 25%),
-        radial-gradient(circle at 85% 70%, rgba(0,200,255,0.08), transparent 25%);
-    pointer-events: none;
-    z-index: -2;
-}
-
-.stars {
-    position: fixed;
-    inset: 0;
-    z-index: -3;
-    overflow: hidden;
-}
-
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: twinkle 4s infinite ease-in-out;
-}
-
-@keyframes twinkle {
-    0%,100% { opacity: .2; }
-    50% { opacity: 1; }
-}
-
-/* ---------- Navigation ---------- */
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(5,11,22,0.88);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: white;
-}
-
-.logo span {
-    color: #4db8ff;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 28px;
-}
-
-nav a {
-    color: #b9c8da;
-    text-decoration: none;
-    font-size: 14px;
-    transition: .3s;
-}
-
-nav a:hover {
-    color: #4db8ff;
-}
-
-/* ---------- General ---------- */
-
-section {
-    padding: 100px 8%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-title .small {
-    color: #4db8ff;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.section-title h2 {
-    font-size: 42px;
-    margin-top: 8px;
-}
-
-.section-title p {
-    max-width: 700px;
-    margin: 15px auto;
-    color: #9caec3;
-}
-
-/* ---------- Hero ---------- */
-
-.hero {
+  /* ── HERO ── */
+  .hero {
     min-height: 100vh;
-    padding: 150px 8% 80px;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
+    background: linear-gradient(160deg, var(--navy) 0%, var(--blue) 55%, #0f4a8a 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 80px 6% 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='%231a7fd4' fill-opacity='0.15'/%3E%3C/svg%3E");
+    background-size: 30px 30px;
+  }
+  .hero-content { position:relative; z-index:1; max-width:800px; }
+  .hero-badge {
+    display:inline-block;
+    background: rgba(26,127,212,0.2);
+    border: 1px solid rgba(26,127,212,0.5);
+    color: var(--accent); font-size:0.78rem; letter-spacing:0.12em;
+    text-transform:uppercase; padding: 6px 18px; border-radius:20px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: var(--white); font-weight: 800;
+    letter-spacing: -0.02em; line-height:1.15;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.75);
+    max-width: 600px; margin: 0 auto 12px;
+  }
+  .hero-location {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.88rem; margin-bottom: 36px;
+  }
+  .hero-tags { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:40px; }
+  .tag {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+    padding: 5px 14px; border-radius: 14px; font-size:0.8rem;
+  }
+  .hero-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn {
+    padding: 12px 28px; border-radius: 6px;
+    font-size: 0.9rem; font-weight: 600; cursor:pointer;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent); color: var(--white);
+    border: 2px solid var(--accent);
+  }
+  .btn-primary:hover { background: #1569b8; border-color:#1569b8; }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 2px solid rgba(255,255,255,0.4);
+  }
+  .btn-outline:hover { border-color:var(--white); }
 
-.hero-content {
-    max-width: 850px;
-}
-
-.badge {
-    display: inline-block;
-    border: 1px solid rgba(77,184,255,.35);
-    background: rgba(77,184,255,.08);
-    color: #66c5ff;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 13px;
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(50px, 8vw, 90px);
-    line-height: 1;
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: #4db8ff;
-}
-
-.hero h2 {
-    font-size: clamp(22px, 3vw, 34px);
-    font-weight: 500;
-    color: #c7d5e6;
-    margin-bottom: 25px;
-}
-
-.hero p {
-    max-width: 760px;
-    font-size: 18px;
-    color: #9caec3;
-    margin-bottom: 35px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 13px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: .3s;
-    display: inline-block;
-}
-
-.btn-primary {
-    background: #1689d8;
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #36a9f2;
-    transform: translateY(-3px);
-}
-
-.btn-secondary {
-    border: 1px solid #31506e;
-    color: #dce8f5;
-}
-
-.btn-secondary:hover {
-    border-color: #4db8ff;
-    color: #4db8ff;
-}
-
-/* ---------- Hero orbit ---------- */
-
-.orbit-system {
-    position: absolute;
-    right: 5%;
-    width: 390px;
-    height: 390px;
-    border: 1px solid rgba(77,184,255,.2);
-    border-radius: 50%;
-    animation: rotate 25s linear infinite;
-}
-
-.orbit-system::before {
-    content: "";
-    position: absolute;
-    inset: 55px;
-    border: 1px solid rgba(77,184,255,.18);
-    border-radius: 50%;
-}
-
-.earth {
-    position: absolute;
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    left: 130px;
-    top: 130px;
-    background:
-        radial-gradient(circle at 35% 30%, #4bb8ff, #07538d 45%, #021d36 75%);
-    box-shadow:
-        0 0 45px rgba(40,160,255,.35),
-        inset -20px -15px 30px rgba(0,0,0,.5);
-}
-
-.satellite {
-    position: absolute;
-    top: -8px;
-    left: 175px;
-    width: 45px;
-    height: 28px;
-    background: #d7e4ef;
-    border-radius: 3px;
-    box-shadow: 0 0 15px rgba(255,255,255,.2);
-}
-
-.satellite::before,
-.satellite::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 17px;
-    top: 5px;
-    background: #235b83;
-}
-
-.satellite::before {
-    right: 45px;
-}
-
-.satellite::after {
-    left: 45px;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* ---------- Cards ---------- */
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 25px;
-}
-
-.card {
-    background: rgba(13,25,43,.75);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 16px;
-    padding: 30px;
-    transition: .35s;
-}
-
-.card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(77,184,255,.45);
-    box-shadow: 0 20px 50px rgba(0,0,0,.25);
-}
-
-.card-icon {
-    font-size: 30px;
-    margin-bottom: 18px;
-}
-
-.card h3 {
-    font-size: 21px;
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #9caec3;
-    font-size: 15px;
-}
-
-/* ---------- About ---------- */
-
-.about-container {
-    max-width: 1000px;
-    margin: auto;
-}
-
-.about-text {
-    background: rgba(13,25,43,.65);
-    padding: 40px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,.08);
-}
-
-.about-text p {
-    color: #b7c5d6;
-    margin-bottom: 18px;
-}
-
-.highlight {
-    color: #60c2ff;
-    font-weight: bold;
-}
-
-/* ---------- Education ---------- */
-
-.timeline {
-    max-width: 900px;
-    margin: auto;
-    position: relative;
-}
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 18px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #234a68;
-}
-
-.timeline-item {
-    position: relative;
-    padding-left: 65px;
-    margin-bottom: 45px;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: 8px;
-    top: 5px;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #1689d8;
-    box-shadow: 0 0 20px rgba(22,137,216,.6);
-}
-
-.timeline-date {
-    color: #4db8ff;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.timeline h3 {
-    font-size: 25px;
-    margin: 5px 0;
-}
-
-.timeline h4 {
-    color: #b6c8db;
-    font-weight: normal;
-    margin-bottom: 10px;
-}
-
-.timeline p {
-    color: #94a8bd;
-}
-
-/* ---------- Thesis ---------- */
-
-.thesis {
-    max-width: 1100px;
-    margin: auto;
-    background: linear-gradient(145deg, rgba(16,37,61,.9), rgba(7,17,31,.9));
-    border: 1px solid rgba(77,184,255,.2);
-    padding: 45px;
-    border-radius: 22px;
-}
-
-.thesis-label {
-    color: #4db8ff;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.thesis h3 {
-    font-size: 32px;
-    margin: 12px 0 20px;
-}
-
-.thesis p {
-    color: #a9b9cb;
-    margin-bottom: 25px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.tag {
-    background: rgba(77,184,255,.08);
-    border: 1px solid rgba(77,184,255,.2);
-    color: #73c8ff;
-    padding: 7px 12px;
-    border-radius: 30px;
-    font-size: 12px;
-}
-
-/* ---------- Projects ---------- */
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 25px;
-}
-
-.project {
-    padding: 35px;
-    border-radius: 18px;
-    background: #0b1829;
-    border: 1px solid #172c42;
-}
-
-.project-number {
-    color: #4db8ff;
-    font-size: 13px;
-    letter-spacing: 2px;
-}
-
-.project h3 {
-    font-size: 25px;
-    margin: 10px 0 15px;
-}
-
-.project p {
-    color: #99aabd;
-}
-
-.project ul {
-    margin: 18px 0;
-    padding-left: 20px;
-    color: #b5c5d6;
-}
-
-.project li {
-    margin-bottom: 7px;
-}
-
-/* ---------- Skills ---------- */
-
-.skills-container {
-    max-width: 1000px;
-    margin: auto;
-}
-
-.skill {
-    margin-bottom: 25px;
-}
-
-.skill-header {
-    display: flex;
-    justify-content: space-between;
+  /* ── SECTIONS ── */
+  section { padding: 80px 6%; }
+  .section-label {
+    text-transform:uppercase; letter-spacing:0.12em;
+    color: var(--accent); font-size:0.78rem; font-weight:700;
     margin-bottom: 8px;
-}
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800; color: var(--navy);
+    margin-bottom: 10px; letter-spacing:-0.02em;
+  }
+  .section-line {
+    width:50px; height:3px;
+    background: var(--accent); margin-bottom:40px; border-radius:2px;
+  }
 
-.skill-header span:first-child {
-    font-weight: bold;
-}
+  /* ── ABOUT ── */
+  .about { background: var(--light); }
+  .about-grid {
+    display:grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items:start; max-width:1100px; margin:0 auto;
+  }
+  .about-text p { color: var(--muted); margin-bottom:16px; font-size:0.97rem; }
+  .about-stats {
+    display:grid; grid-template-columns: 1fr 1fr; gap:16px;
+  }
+  .stat-card {
+    background: var(--white); border:1px solid var(--border);
+    border-radius:10px; padding:20px 16px; text-align:center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .stat-num { font-size:1.8rem; font-weight:800; color:var(--accent); }
+  .stat-label { font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; }
 
-.skill-header span:last-child {
-    color: #4db8ff;
-    font-size: 13px;
-}
+  /* ── SKILLS ── */
+  .skills-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap:20px; max-width:1100px; margin:0 auto;
+  }
+  .skill-card {
+    background: var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .skill-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.09); }
+  .skill-icon { font-size:1.6rem; margin-bottom:12px; }
+  .skill-card h3 { font-size:0.97rem; font-weight:700; color:var(--navy); margin-bottom:10px; }
+  .skill-tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .skill-tag {
+    background: var(--light); color:var(--blue);
+    border: 1px solid #c5d8ee;
+    font-size:0.75rem; padding:3px 10px; border-radius:10px;
+  }
 
-.skill-bar {
-    height: 8px;
-    background: #142539;
-    border-radius: 10px;
-    overflow: hidden;
-}
+  /* ── EXPERIENCE ── */
+  .experience { background: var(--light); }
+  .timeline { max-width:860px; margin:0 auto; position:relative; }
+  .timeline::before {
+    content:''; position:absolute; left:18px; top:0; bottom:0;
+    width:2px; background: var(--border);
+  }
+  .tl-item { display:flex; gap:28px; margin-bottom:32px; position:relative; }
+  .tl-dot {
+    width:38px; height:38px; border-radius:50%;
+    background: var(--accent); color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1rem; flex-shrink:0; z-index:1;
+    box-shadow: 0 0 0 4px var(--light);
+  }
+  .tl-body {
+    background: var(--white); border:1px solid var(--border);
+    border-radius:12px; padding:20px 22px; flex:1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .tl-date { font-size:0.75rem; color:var(--accent); font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:4px; }
+  .tl-body h3 { font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:2px; }
+  .tl-org { font-size:0.85rem; color:var(--muted); margin-bottom:10px; }
+  .tl-body ul { padding-left:16px; }
+  .tl-body ul li { font-size:0.86rem; color:var(--muted); margin-bottom:4px; }
 
-.skill-fill {
-    height: 100%;
-    background: linear-gradient(90deg,#116db0,#4db8ff);
-    border-radius: 10px;
-}
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap:22px; max-width:1200px; margin:0 auto;
+  }
+  .proj-card {
+    background: var(--card); border:1px solid var(--border);
+    border-radius:14px; overflow:hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display:flex; flex-direction:column;
+  }
+  .proj-card:hover { transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.1); }
+  .proj-header {
+    padding:22px 22px 14px;
+    border-bottom:1px solid var(--border);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  }
+  .proj-icon { font-size:2rem; margin-bottom:10px; }
+  .proj-header h3 { color:var(--white); font-size:0.97rem; font-weight:700; margin-bottom:6px; }
+  .proj-cat {
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em;
+    color: var(--accent); font-weight:600;
+  }
+  .proj-body { padding:18px 22px; flex:1; }
+  .proj-body p { font-size:0.85rem; color:var(--muted); margin-bottom:14px; }
+  .proj-chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .chip {
+    background: var(--light); color:var(--blue);
+    border:1px solid #c5d8ee;
+    font-size:0.72rem; padding:3px 9px; border-radius:10px;
+  }
 
-/* ---------- Experience ---------- */
+  /* ── PUBLICATIONS ── */
+  .publications { background: var(--light); }
+  .pub-list { max-width:860px; margin:0 auto; }
+  .pub-item {
+    background: var(--white); border:1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius:0 10px 10px 0; padding:18px 20px;
+    margin-bottom:14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .pub-type { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--accent); font-weight:700; margin-bottom:4px; }
+  .pub-item h4 { font-size:0.92rem; font-weight:700; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+  .pub-venue { font-size:0.82rem; color:var(--muted); }
 
-.experience {
-    max-width: 1000px;
-    margin: auto;
-}
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display:grid; grid-template-columns: 1fr 1fr;
+    gap:20px; max-width:900px; margin:0 auto;
+  }
+  .edu-card {
+    background: var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .edu-degree { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent); font-weight:700; margin-bottom:6px; }
+  .edu-card h3 { font-size:1rem; font-weight:800; color:var(--navy); margin-bottom:4px; }
+  .edu-uni { font-size:0.85rem; color:var(--muted); margin-bottom:4px; }
+  .edu-year { font-size:0.8rem; color:var(--accent); font-weight:600; }
+  .edu-thesis { font-size:0.82rem; color:var(--muted); margin-top:10px; font-style:italic; }
+  .award-badge {
+    display:inline-block; background:#fff8e6;
+    border:1px solid var(--gold); color:#a07000;
+    font-size:0.72rem; padding:3px 10px; border-radius:10px;
+    margin-top:8px;
+  }
 
-.experience-item {
-    background: #0b1829;
-    border-left: 3px solid #1689d8;
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 0 15px 15px 0;
-}
+  /* ── AWARDS ── */
+  .awards { background: var(--light); }
+  .awards-grid {
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap:16px; max-width:1000px; margin:0 auto;
+  }
+  .award-card {
+    background: var(--white); border:1px solid var(--border);
+    border-radius:12px; padding:22px 18px; text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.04);
+  }
+  .award-icon { font-size:2rem; margin-bottom:10px; }
+  .award-card h4 { font-size:0.9rem; font-weight:700; color:var(--navy); margin-bottom:4px; }
+  .award-card p { font-size:0.78rem; color:var(--muted); }
 
-.experience-item .date {
-    color: #4db8ff;
-    font-size: 13px;
-}
+  /* ── CONTACT ── */
+  .contact {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--blue) 100%);
+    text-align:center; padding:80px 6%;
+  }
+  .contact .section-title { color:var(--white); }
+  .contact .section-label { color:var(--accent); }
+  .contact .section-line { margin:0 auto 20px; }
+  .contact-sub { color:rgba(255,255,255,0.7); max-width:500px; margin:0 auto 36px; font-size:0.95rem; }
+  .contact-links { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .contact-link {
+    display:flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25);
+    color:var(--white); text-decoration:none;
+    padding:11px 22px; border-radius:8px; font-size:0.88rem;
+    transition: background 0.2s;
+  }
+  .contact-link:hover { background:rgba(255,255,255,0.2); }
 
-.experience-item h3 {
-    font-size: 23px;
-    margin: 5px 0;
-}
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color:rgba(255,255,255,0.4);
+    text-align:center; padding:18px;
+    font-size:0.78rem; border-top:1px solid rgba(255,255,255,0.08);
+  }
 
-.experience-item h4 {
-    color: #9fb1c4;
-    font-weight: normal;
-    margin-bottom: 15px;
-}
-
-.experience-item p,
-.experience-item li {
-    color: #9caec3;
-}
-
-.experience-item ul {
-    padding-left: 20px;
-}
-
-/* ---------- Career ---------- */
-
-.career-box {
-    max-width: 1000px;
-    margin: auto;
-    text-align: center;
-    background: linear-gradient(145deg,#0d2943,#071523);
-    padding: 55px 35px;
-    border-radius: 22px;
-    border: 1px solid rgba(77,184,255,.2);
-}
-
-.career-box h3 {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.career-box p {
-    max-width: 750px;
-    margin: auto auto 30px;
-    color: #a8b9ca;
-}
-
-/* ---------- Contact ---------- */
-
-.contact {
-    text-align: center;
-}
-
-.contact-box {
-    max-width: 800px;
-    margin: auto;
-}
-
-.contact-box h3 {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-.contact-box p {
-    color: #9caec3;
-    margin-bottom: 30px;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-/* ---------- Footer ---------- */
-
-footer {
-    text-align: center;
-    padding: 30px;
-    border-top: 1px solid rgba(255,255,255,.08);
-    color: #6f8195;
-    font-size: 13px;
-}
-
-/* ---------- Responsive ---------- */
-
-@media (max-width: 950px) {
-
-    nav ul {
-        display: none;
-    }
-
-    .orbit-system {
-        opacity: .18;
-        right: -100px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 650px) {
-
-    section {
-        padding: 75px 6%;
-    }
-
-    .hero {
-        padding: 130px 6% 70px;
-    }
-
-    .hero h1 {
-        font-size: 55px;
-    }
-
-    .hero h2 {
-        font-size: 23px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .orbit-system {
-        width: 280px;
-        height: 280px;
-        right: -120px;
-        top: 150px;
-    }
-
-    .earth {
-        width: 90px;
-        height: 90px;
-        left: 95px;
-        top: 95px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title h2 {
-        font-size: 34px;
-    }
-
-    .thesis {
-        padding: 28px;
-    }
-
-    .thesis h3 {
-        font-size: 25px;
-    }
-}
+  /* ── RESPONSIVE ── */
+  @media(max-width:700px){
+    .about-grid, .edu-grid { grid-template-columns:1fr; gap:30px; }
+    nav ul { gap:16px; }
+  }
 </style>
 </head>
-
 <body>
 
-<!-- STAR BACKGROUND -->
-<div class="stars" id="stars"></div>
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
-
+<!-- NAV -->
 <nav>
-    <div class="logo">HASSAN<span>ALI</span></div>
-
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+  <div class="nav-logo">H<span>.</span>ALI</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
+<!-- HERO -->
 <section class="hero">
-
-    <div class="hero-content">
-
-        <div class="badge">
-            SPACE SYSTEMS • SATELLITE TECHNOLOGY • RF ENGINEERING
-        </div>
-
-        <h1>
-            Hassan <span>Ali</span>
-        </h1>
-
-        <h2>
-            Satellite Technology Engineer
-        </h2>
-
-        <p>
-            M.Sc. Satellite Technology graduate with a background in
-            Space Science, specializing in CubeSat communications,
-            satellite link analysis, RF systems, communication
-            simulations and spacecraft operations.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#research" class="btn btn-primary">
-                Explore My Work
-            </a>
-
-            <a href="#contact" class="btn btn-secondary">
-                Contact Me
-            </a>
-        </div>
-
+  <div class="hero-content">
+    <div class="hero-badge">🛰️ Spacecraft &amp; Satellite Systems Engineer</div>
+    <h1>Hassan <span>Ali</span></h1>
+    <p class="hero-sub">M.Sc. Satellite Technology · JMU Würzburg · CubeSat Operations · ADCS · RF Communications</p>
+    <p class="hero-location">📍 Würzburg, Germany &nbsp;|&nbsp; Open to Relocation</p>
+    <div class="hero-tags">
+      <span class="tag">ADCS / AOCS</span>
+      <span class="tag">EPS &amp; Thermal</span>
+      <span class="tag">RF Link Simulation</span>
+      <span class="tag">Keysight SystemVue</span>
+      <span class="tag">MATLAB</span>
+      <span class="tag">NASA GMAT</span>
+      <span class="tag">ESA SPENVIS</span>
+      <span class="tag">IEEE Author</span>
     </div>
-
-    <div class="orbit-system">
-        <div class="earth"></div>
-        <div class="satellite"></div>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="#projects">View Projects</a>
+      <a class="btn btn-outline" href="#contact">Get In Touch</a>
     </div>
-
+  </div>
 </section>
 
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section id="about">
-
-    <div class="section-title">
-        <div class="small">Introduction</div>
-        <h2>About Me</h2>
-
-        <p>
-            Space systems, communications and engineering.
-        </p>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">About Me</div>
+      <div class="section-title">Spacecraft Engineer<br/>Based in Germany</div>
+      <div class="section-line"></div>
+      <p>I am a spacecraft and satellite systems engineer with an M.Sc. in Satellite Technology from Julius-Maximilians-Universität Würzburg (2025) and a B.Sc. in Space Science from the Institute of Space Technology Islamabad (2018). I have been living and working in Germany since 2020, hold a valid residence permit, and am fully entitled to work without restrictions.</p>
+      <p>My work sits at the intersection of satellite subsystem engineering, ground segment operations, and RF communication systems — from ADCS actuator design and EPS budgeting to end-to-end link simulation and orbital performance monitoring.</p>
+      <p>I have published research in IEEE journals, presented at international conferences across four continents, and received multiple gold medals for research excellence.</p>
     </div>
-
-    <div class="about-container">
-
-        <div class="about-text">
-
-            <p>
-                I am <span class="highlight">Hassan Ali</span>,
-                a Satellite Technology graduate based in Würzburg,
-                Germany, with an academic background spanning
-                satellite systems, space science and communication
-                engineering.
-            </p>
-
-            <p>
-                I completed my Master of Science in
-                <span class="highlight">
-                Satellite Technology (Advanced Space Systems)
-                </span>
-                at Julius-Maximilians-Universität Würzburg.
-            </p>
-
-            <p>
-                Before my master's studies, I completed my
-                Bachelor of Science in Space Science at the
-                Institute of Space Technology (IST), Islamabad.
-            </p>
-
-            <p>
-                My technical interests include satellite
-                communications, CubeSat missions, RF systems,
-                link budget analysis, digital communications,
-                ground segment technologies and spacecraft
-                operations.
-            </p>
-
-            <p>
-                My master's research involved communication
-                performance analysis for the UWE-5 CubeSat mission,
-                including link-budget calculations, SystemVue
-                simulations, GMSK modulation, BER analysis,
-                received-power evaluation and Eb/N0 analysis.
-            </p>
-
-            <p>
-                I am particularly interested in opportunities
-                where I can combine my academic knowledge with
-                practical engineering work in the European
-                space industry.
-            </p>
-
-        </div>
-
+    <div class="about-stats">
+      <div class="stat-card"><div class="stat-num">5+</div><div class="stat-label">IEEE Publications</div></div>
+      <div class="stat-card"><div class="stat-num">8+</div><div class="stat-label">Satellite Projects</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Gold Medals</div></div>
+      <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Continents – Conferences</div></div>
     </div>
-
+  </div>
 </section>
 
-
-<!-- =====================================================
-     EDUCATION
-===================================================== -->
-
-<section id="education">
-
-    <div class="section-title">
-        <div class="small">Academic Background</div>
-        <h2>Education</h2>
-    </div>
-
-    <div class="timeline">
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-date">
-                2023 – 2025
-            </div>
-
-            <h3>
-                M.Sc. Satellite Technology
-            </h3>
-
-            <h4>
-                Advanced Space Systems
-            </h4>
-
-            <p>
-                Julius-Maximilians-Universität Würzburg,
-                Germany.
-            </p>
-
-            <p>
-                Focus on satellite communications,
-                spacecraft systems, RF engineering,
-                CubeSat technologies, communication
-                simulation and space systems analysis.
-            </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-date">
-                2018 – 2022
-            </div>
-
-            <h3>
-                B.Sc. Space Science
-            </h3>
-
-            <h4>
-                Institute of Space Technology
-            </h4>
-
-            <p>
-                Islamabad, Pakistan.
-            </p>
-
-            <p>
-                Academic foundation in space science,
-                satellite systems, orbital mechanics,
-                electronics, communications and related
-                space engineering disciplines.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     MASTER THESIS
-===================================================== -->
-
-<section>
-
-    <div class="section-title">
-        <div class="small">Featured Research</div>
-        <h2>Master's Thesis</h2>
-    </div>
-
-    <div class="thesis">
-
-        <div class="thesis-label">
-            UWE-5 CUBESAT MISSION
-        </div>
-
-        <h3>
-            Dynamic Link Simulation for the
-            UWE-5 CubeSat Mission
-        </h3>
-
-        <p>
-            My master's research focused on the analysis and
-            simulation of a CubeSat communication link. The work
-            combined analytical link-budget calculations with
-            communication-system simulation to evaluate the
-            performance of the satellite downlink.
-        </p>
-
-        <p>
-            The communication link was analyzed using mission
-            and orbital parameters, allowing the variation of
-            received power and communication performance to be
-            evaluated over the satellite's visibility period.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">CubeSat</span>
-            <span class="tag">UWE-5</span>
-            <span class="tag">Link Budget</span>
-            <span class="tag">SystemVue</span>
-            <span class="tag">GMSK</span>
-            <span class="tag">BER</span>
-            <span class="tag">Eb/N0</span>
-            <span class="tag">Received Power</span>
-            <span class="tag">Satellite Communications</span>
-            <span class="tag">Orbit Analysis</span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     RESEARCH PROJECTS
-===================================================== -->
-
-<section id="research">
-
-    <div class="section-title">
-
-        <div class="small">
-            Engineering & Research
-        </div>
-
-        <h2>
-            Selected Projects
-        </h2>
-
-        <p>
-            Selected academic and technical work in
-            satellite communications and RF systems.
-        </p>
-
-    </div>
-
-
-    <div class="project-grid">
-
-
-        <!-- PROJECT 1 -->
-
-        <div class="project">
-
-            <div class="project-number">
-                PROJECT 01
-            </div>
-
-            <h3>
-                UWE-5 CubeSat Communication Link
-            </h3>
-
-            <p>
-                Communication link analysis and dynamic
-                simulation for the UWE-5 CubeSat mission.
-            </p>
-
-            <ul>
-                <li>
-                    Developed satellite communication
-                    link-budget calculations.
-                </li>
-
-                <li>
-                    Analyzed received power and link
-                    performance.
-                </li>
-
-                <li>
-                    Studied downlink communication
-                    performance.
-                </li>
-
-                <li>
-                    Integrated orbital information into
-                    communication analysis.
-                </li>
-
-                <li>
-                    Evaluated Eb/N0 and BER performance.
-                </li>
-            </ul>
-
-            <div class="tags">
-                <span class="tag">CubeSat</span>
-                <span class="tag">SystemVue</span>
-                <span class="tag">MATLAB</span>
-                <span class="tag">Link Budget</span>
-            </div>
-
-        </div>
-
-
-        <!-- PROJECT 2 -->
-
-        <div class="project">
-
-            <div class="project-number">
-                PROJECT 02
-            </div>
-
-            <h3>
-                K-Band Upconverter & Downconverter
-            </h3>
-
-            <p>
-                Design and analysis of RF frequency
-                conversion architectures for a CubeSat
-                communication system.
-            </p>
-
-            <ul>
-                <li>
-                    Designed multiple upconverter
-                    architectures.
-                </li>
-
-                <li>
-                    Designed multiple downconverter
-                    architectures.
-                </li>
-
-                <li>
-                    Compared six upconverter and six
-                    downconverter architectures.
-                </li>
-
-                <li>
-                    Evaluated RF chain performance.
-                </li>
-
-                <li>
-                    Analyzed frequency conversion
-                    architectures using SystemVue.
-                </li>
-            </ul>
-
-            <div class="tags">
-                <span class="tag">K-Band</span>
-                <span class="tag">RF</span>
-                <span class="tag">SystemVue</span>
-                <span class="tag">Mixers</span>
-                <span class="tag">Filters</span>
-            </div>
-
-        </div>
-
-
-        <!-- PROJECT 3 -->
-
-        <div class="project">
-
-            <div class="project-number">
-                PROJECT 03
-            </div>
-
-            <h3>
-                GMSK BER Performance Analysis
-            </h3>
-
-            <p>
-                Digital communication simulation for
-                evaluating GMSK modulation performance.
-            </p>
-
-            <ul>
-
-                <li>
-                    Implemented GMSK communication
-                    simulation.
-                </li>
-
-                <li>
-                    Evaluated BER against Eb/N0.
-                </li>
-
-                <li>
-                    Studied received-power variations.
-                </li>
-
-                <li>
-                    Analyzed communication reliability.
-                </li>
-
-                <li>
-                    Investigated orbit-dependent
-                    communication conditions.
-                </li>
-
-            </ul>
-
-            <div class="tags">
-                <span class="tag">GMSK</span>
-                <span class="tag">BER</span>
-                <span class="tag">Eb/N0</span>
-                <span class="tag">SystemVue</span>
-            </div>
-
-        </div>
-
-
-        <!-- PROJECT 4 -->
-
-        <div class="project">
-
-            <div class="project-number">
-                PROJECT 04
-            </div>
-
-            <h3>
-                Satellite Link Budget Analysis
-            </h3>
-
-            <p>
-                Analytical communication-link calculations
-                supporting satellite mission analysis.
-            </p>
-
-            <ul>
-
-                <li>
-                    Free-space path-loss calculations.
-                </li>
-
-                <li>
-                    Transmit and receive antenna analysis.
-                </li>
-
-                <li>
-                    Received-power calculations.
-                </li>
-
-                <li>
-                    Link-margin evaluation.
-                </li>
-
-                <li>
-                    Communication-performance assessment.
-                </li>
-
-            </ul>
-
-            <div class="tags">
-                <span class="tag">Link Budget</span>
-                <span class="tag">RF</span>
-                <span class="tag">Satellite</span>
-                <span class="tag">Excel</span>
-                <span class="tag">MATLAB</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     TECHNICAL SKILLS
-===================================================== -->
-
+<!-- SKILLS -->
 <section id="skills">
-
-    <div class="section-title">
-
-        <div class="small">
-            Technical Profile
-        </div>
-
-        <h2>
-            Engineering Skills
-        </h2>
-
-        <p>
-            Technologies and engineering areas developed
-            through academic and practical experience.
-        </p>
-
+  <div style="text-align:center; margin-bottom:40px;">
+    <div class="section-label">Technical Expertise</div>
+    <div class="section-title" style="color:var(--navy)">Core Skills</div>
+    <div class="section-line" style="margin:0 auto;"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🛰️</div>
+      <h3>Satellite Subsystems</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">ADCS / AOCS</span>
+        <span class="skill-tag">Magnetorquers</span>
+        <span class="skill-tag">Detumbling</span>
+        <span class="skill-tag">EPS</span>
+        <span class="skill-tag">Power Budgeting</span>
+        <span class="skill-tag">Thermal Control</span>
+        <span class="skill-tag">Solar Array Sizing</span>
+      </div>
     </div>
-
-
-    <div class="skills-container">
-
-        <div class="skill">
-
-            <div class="skill-header">
-                <span>Satellite Communications</span>
-                <span>Advanced</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-fill" style="width:88%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-header">
-                <span>CubeSat Systems</span>
-                <span>Advanced</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-fill" style="width:85%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-header">
-                <span>RF Engineering</span>
-                <span>Advanced</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-fill" style="width:82%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-header">
-                <span>Link Budget Analysis</span>
-                <span>Advanced</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-fill" style="width:90%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-header">
-                <span>SystemVue</span>
-                <span>Advanced</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-fill" style="width:85%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-header">
-                <span>MATLAB</span>
-                <span>Intermediate</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-fill" style="width:75%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-header">
-                <span>Python</span>
-                <span>Intermediate</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-fill" style="width:70%"></div>
-            </div>
-
-        </div>
-
-
-        <div class="skill">
-
-            <div class="skill-header">
-                <span>Microsoft Excel</span>
-                <span>Advanced</span>
-            </div>
-
-            <div class="skill-bar">
-                <div class="skill-fill" style="width:88%"></div>
-            </div>
-
-        </div>
-
+    <div class="skill-card">
+      <div class="skill-icon">📡</div>
+      <h3>RF &amp; Communications</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Link Budget Analysis</span>
+        <span class="skill-tag">Doppler Modelling</span>
+        <span class="skill-tag">GMSK / BPSK</span>
+        <span class="skill-tag">BER Analysis</span>
+        <span class="skill-tag">Beamforming</span>
+        <span class="skill-tag">Ka/K-band</span>
+        <span class="skill-tag">Keysight SystemVue</span>
+      </div>
     </div>
-
+    <div class="skill-card">
+      <div class="skill-icon">🌍</div>
+      <h3>Orbital &amp; Mission Analysis</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">NASA GMAT</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">ESA SPENVIS</span>
+        <span class="skill-tag">Orbital Perturbations</span>
+        <span class="skill-tag">Contact Windows</span>
+        <span class="skill-tag">Slant Range</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">💻</div>
+      <h3>Programming &amp; Tools</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">C/C++</span>
+        <span class="skill-tag">GNU Radio</span>
+        <span class="skill-tag">PlutoSDR</span>
+        <span class="skill-tag">Proteus</span>
+        <span class="skill-tag">SketchUp</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📝</div>
+      <h3>Documentation &amp; Research</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">IEEE Publication</span>
+        <span class="skill-tag">Technical Reporting</span>
+        <span class="skill-tag">Flight Procedures</span>
+        <span class="skill-tag">Conference Presentation</span>
+        <span class="skill-tag">LaTeX</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤝</div>
+      <h3>Soft Skills &amp; Languages</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">English – C1</span>
+        <span class="skill-tag">German – A2</span>
+        <span class="skill-tag">Urdu/Punjabi – Native</span>
+        <span class="skill-tag">Team Collaboration</span>
+        <span class="skill-tag">Agile Methodology</span>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div style="max-width:860px; margin:0 auto 40px;">
+    <div class="section-label">Career</div>
+    <div class="section-title">Work Experience</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
 
-<!-- =====================================================
-     TECHNICAL AREAS
-===================================================== -->
-
-<section>
-
-    <div class="section-title">
-
-        <div class="small">
-            Areas of Expertise
-        </div>
-
-        <h2>
-            What I Work With
-        </h2>
-
+    <div class="tl-item">
+      <div class="tl-dot">🔬</div>
+      <div class="tl-body">
+        <div class="tl-date">Sep 2024 – Aug 2025 · Cottbus, Germany</div>
+        <h3>Master's Thesis Researcher – RF Communication Systems for CubeSats</h3>
+        <div class="tl-org">Brandenburg University of Technology Cottbus-Senftenberg (BTU)</div>
+        <ul>
+          <li>Developed reconfigurable Ka/K-band RF simulation framework for UWE-5 CubeSat in Keysight SystemVue</li>
+          <li>Monitored satellite flyover parameters (Doppler shift, slant range, elevation) across ground station contact windows</li>
+          <li>Performed uplink/downlink link budget optimisation; cross-validated SystemVue results against MATLAB baseline</li>
+          <li>Implemented GMSK modulation and BER performance analysis under realistic RF impairment conditions</li>
+        </ul>
+      </div>
     </div>
 
-
-    <div class="grid">
-
-        <div class="card">
-
-            <div class="card-icon">
-                🛰️
-            </div>
-
-            <h3>
-                Space Systems
-            </h3>
-
-            <p>
-                CubeSat systems, satellite mission concepts,
-                spacecraft communication and space-system
-                engineering.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                📡
-            </div>
-
-            <h3>
-                RF Communications
-            </h3>
-
-            <p>
-                RF architectures, K-band systems,
-                upconversion, downconversion, mixers,
-                filters and communication chains.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                📊
-            </div>
-
-            <h3>
-                Link Analysis
-            </h3>
-
-            <p>
-                Link budgets, received power, path loss,
-                Eb/N0, BER and communication-margin
-                analysis.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                💻
-            </div>
-
-            <h3>
-                Simulation
-            </h3>
-
-            <p>
-                SystemVue, MATLAB, Python and Excel for
-                engineering calculations, modeling and
-                communication analysis.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🌍
-            </div>
-
-            <h3>
-                Mission Analysis
-            </h3>
-
-            <p>
-                Orbit-related communication analysis,
-                satellite visibility and mission
-                communication performance.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🎯
-            </div>
-
-            <h3>
-                Problem Solving
-            </h3>
-
-            <p>
-                Analytical thinking, technical
-                troubleshooting, engineering documentation
-                and practical problem solving.
-            </p>
-
-        </div>
-
+    <div class="tl-item">
+      <div class="tl-dot">🛸</div>
+      <div class="tl-body">
+        <div class="tl-date">Jul – Aug 2018 · Ankara, Turkey</div>
+        <h3>Trainee – Student Small Satellite Design Project</h3>
+        <div class="tl-org">APSCO Summer Camp, Middle East Technical University (METU)</div>
+        <ul>
+          <li>Completed 3-week intensive CubeSat development programme (flight model stage)</li>
+          <li>Trained in subsystem integration, mission operations flow, and ground station communication testing</li>
+          <li>Worked in multicultural team with students and faculty from APSCO member states</li>
+        </ul>
+      </div>
     </div>
 
+    <div class="tl-item">
+      <div class="tl-dot">⚙️</div>
+      <div class="tl-body">
+        <div class="tl-date">Aug – Sep 2018 · Islamabad, Pakistan</div>
+        <h3>Intern – Attitude Control &amp; Magnetorquer Design</h3>
+        <div class="tl-org">Space Systems Lab, Institute of Space Technology (IST)</div>
+        <ul>
+          <li>Designed and thermally characterised PCB printed magnetorquers for nanosatellite ADCS</li>
+          <li>Designed Helmholtz coil test rig for pre-launch ADCS hardware calibration</li>
+          <li>Published findings in IEEE Transactions on Aerospace and Electronic Systems and IEEE JMASS</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">🌌</div>
+      <div class="tl-body">
+        <div class="tl-date">Aug – Sep 2017 · Islamabad, Pakistan</div>
+        <h3>Intern – Space Environment &amp; Mission Analysis</h3>
+        <div class="tl-org">Space Systems Lab, Institute of Space Technology (IST)</div>
+        <ul>
+          <li>Analysed radiation and particle flux environments for ICUBE-1 and ICUBE-Q CubeSat missions using ESA SPENVIS</li>
+          <li>Evaluated single-event effect risk and shielding requirements to support operational mission planning</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </section>
 
+<!-- PROJECTS -->
+<section id="projects">
+  <div style="text-align:center; margin-bottom:40px;">
+    <div class="section-label">Portfolio</div>
+    <div class="section-title" style="color:var(--navy)">Key Projects</div>
+    <div class="section-line" style="margin:0 auto;"></div>
+  </div>
+  <div class="projects-grid">
 
-<!-- =====================================================
-     EXPERIENCE
-===================================================== -->
-
-<section id="experience">
-
-    <div class="section-title">
-
-        <div class="small">
-            Professional Journey
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">📡</div>
+        <h3>Dynamic Link Simulation – UWE-5 CubeSat Mission</h3>
+        <div class="proj-cat">M.Sc. Thesis · RF Communications</div>
+      </div>
+      <div class="proj-body">
+        <p>End-to-end Ka/K-band (20–40 GHz) communication system simulation for the UWE-5 CubeSat. Designed six up/downconverter architectures, implemented GMSK modulation, integrated MATLAB orbital data, and validated BER and received power across contact windows for two ground stations.</p>
+        <div class="proj-chips">
+          <span class="chip">Keysight SystemVue</span><span class="chip">MATLAB</span>
+          <span class="chip">GMSK</span><span class="chip">Link Budget</span>
+          <span class="chip">Doppler Modelling</span><span class="chip">Beamforming</span>
         </div>
-
-        <h2>
-            Experience
-        </h2>
-
-        <p>
-            Professional experience alongside academic
-            specialization in satellite technology.
-        </p>
-
+      </div>
     </div>
 
-
-    <div class="experience">
-
-
-        <!-- EXPERIENCE 1 -->
-
-        <div class="experience-item">
-
-            <div class="date">
-                2026
-            </div>
-
-            <h3>
-                Professional Experience in Germany
-            </h3>
-
-            <h4>
-                Technical & Industrial Environment
-            </h4>
-
-            <p>
-                Developed practical experience working in
-                German industrial environments alongside
-                academic specialization in satellite
-                technology.
-            </p>
-
-            <ul>
-
-                <li>
-                    Worked within structured German
-                    workplace environments.
-                </li>
-
-                <li>
-                    Developed strong teamwork and
-                    communication skills.
-                </li>
-
-                <li>
-                    Worked according to workplace safety
-                    and quality procedures.
-                </li>
-
-                <li>
-                    Developed practical problem-solving
-                    and operational skills.
-                </li>
-
-            </ul>
-
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">🧲</div>
+        <h3>Magnetorquer Optimization for Nanosatellites (FloatSat)</h3>
+        <div class="proj-cat">ADCS · IEEE Published</div>
+      </div>
+      <div class="proj-body">
+        <p>Designed and optimised PCB printed magnetorquer actuators for nanosatellite attitude stabilisation and detumbling. Developed parametric torque-efficiency models, built Helmholtz coil test rig for hardware validation, and integrated actuator into ADCS simulations.</p>
+        <div class="proj-chips">
+          <span class="chip">ADCS</span><span class="chip">PCB Design</span>
+          <span class="chip">Helmholtz Coil</span><span class="chip">Thermal Analysis</span>
+          <span class="chip">IEEE Published</span>
         </div>
-
-
-        <!-- EXPERIENCE 2 -->
-
-        <div class="experience-item">
-
-            <div class="date">
-                2025 – 2026
-            </div>
-
-            <h3>
-                Professional & Technical Experience
-            </h3>
-
-            <h4>
-                Germany
-            </h4>
-
-            <p>
-                Gained experience across different
-                professional environments while completing
-                and transitioning from master's-level
-                satellite technology studies into the
-                German job market.
-            </p>
-
-            <ul>
-
-                <li>
-                    Adapted to German workplace standards.
-                </li>
-
-                <li>
-                    Worked effectively in team-based
-                    environments.
-                </li>
-
-                <li>
-                    Developed communication and
-                    organizational skills.
-                </li>
-
-                <li>
-                    Balanced professional responsibilities
-                    with advanced academic work.
-                </li>
-
-            </ul>
-
-        </div>
-
+      </div>
     </div>
 
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">☄️</div>
+        <h3>Small Satellite Mission to Asteroid Apophis</h3>
+        <div class="proj-cat">EPS · Thermal · Structural</div>
+      </div>
+      <div class="proj-body">
+        <p>Led EPS and Thermal/Structural subsystem design for a long-duration asteroid flyby mission. Produced power budget, solar array sizing model, and thermal control strategy. Assessed structural endurance and component qualification for deep-space environment.</p>
+        <div class="proj-chips">
+          <span class="chip">EPS</span><span class="chip">Thermal Control</span>
+          <span class="chip">Power Budget</span><span class="chip">Solar Array</span>
+          <span class="chip">Mission Design</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">🌍</div>
+        <h3>3U Remote Sensing CubeSat Mission</h3>
+        <div class="proj-cat">Mission Design · Orbital Analysis</div>
+      </div>
+      <div class="proj-body">
+        <p>Designed a complete 3U CubeSat Earth observation mission. Modelled power and structural subsystems under CubeSat constraints and verified through full mission simulation in NASA GMAT, including trade-off studies for subsystem sizing and mission lifetime.</p>
+        <div class="proj-chips">
+          <span class="chip">NASA GMAT</span><span class="chip">EPS</span>
+          <span class="chip">Orbital Simulation</span><span class="chip">Mission Lifetime</span>
+          <span class="chip">Trade-off Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">📻</div>
+        <h3>Wireless Telemetry via PlutoSDR &amp; GNU Radio</h3>
+        <div class="proj-cat">RF · Ground Communications</div>
+      </div>
+      <div class="proj-body">
+        <p>Implemented and validated a BPSK-based wireless telemetry link between ADALM-Pluto SDR modules using GNU Radio Companion. Analysed link performance, investigated QPSK implementation challenges, and proposed filter optimisation improvements.</p>
+        <div class="proj-chips">
+          <span class="chip">PlutoSDR</span><span class="chip">GNU Radio</span>
+          <span class="chip">BPSK</span><span class="chip">Telemetry</span>
+          <span class="chip">Link Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">☢️</div>
+        <h3>Space Environment Analysis – 3U CubeSat</h3>
+        <div class="proj-cat">Radiation · Mission Lifetime</div>
+      </div>
+      <div class="proj-body">
+        <p>Performed radiation dose and particle flux modelling using ESA SPENVIS for shielding design and operational lifetime estimation. Contributed to single-event effect mitigation strategy and system lifetime prediction for a 3U CubeSat in LEO.</p>
+        <div class="proj-chips">
+          <span class="chip">ESA SPENVIS</span><span class="chip">Radiation Shielding</span>
+          <span class="chip">SEE Analysis</span><span class="chip">LEO</span>
+          <span class="chip">Mission Lifetime</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">🚀</div>
+        <h3>AI4SAT5G – VLEO Satellite Propulsion</h3>
+        <div class="proj-cat">Propulsion · 5G Integration</div>
+      </div>
+      <div class="proj-body">
+        <p>Designed propulsion subsystem for VLEO satellites within the AI4SAT5G (CubeSat integration into 5G networks) project. Conducted ΔV budgeting and orbit maintenance trade-off analysis; recommended ENPULSION NANO electric propulsion for long-duration operations.</p>
+        <div class="proj-chips">
+          <span class="chip">Propulsion</span><span class="chip">ΔV Budget</span>
+          <span class="chip">VLEO</span><span class="chip">5G Integration</span>
+          <span class="chip">Electric Propulsion</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-icon">🪐</div>
+        <h3>Orbital Perturbation Analysis – MATLAB</h3>
+        <div class="proj-cat">Orbital Mechanics</div>
+      </div>
+      <div class="proj-body">
+        <p>Simulated orbital perturbations — atmospheric drag, Earth oblateness (J2), and solar radiation pressure — using Gaussian Variation of Parameters in MATLAB. Assessed long-term orbital stability and satellite lifetime for CubeSat-class missions in LEO.</p>
+        <div class="proj-chips">
+          <span class="chip">MATLAB</span><span class="chip">J2 Perturbations</span>
+          <span class="chip">Drag Analysis</span><span class="chip">Orbital Stability</span>
+          <span class="chip">LEO</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
+<!-- PUBLICATIONS -->
+<section class="publications" id="publications">
+  <div style="max-width:860px; margin:0 auto 40px;">
+    <div class="section-label">Research Output</div>
+    <div class="section-title">Publications &amp; Conferences</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="pub-list">
 
-<!-- =====================================================
-     LANGUAGES & ADDITIONAL SKILLS
-===================================================== -->
-
-<section>
-
-    <div class="section-title">
-
-        <div class="small">
-            Additional Qualifications
-        </div>
-
-        <h2>
-            Languages & Other Skills
-        </h2>
-
+    <div class="pub-item">
+      <div class="pub-type">IEEE Journal · 2019</div>
+      <h4>Optimized Design and Thermal Analysis of Printed Magnetorquer for Attitude Control of Reconfigurable Nanosatellites</h4>
+      <div class="pub-venue">IEEE Transactions on Aerospace and Electronic Systems</div>
     </div>
 
-
-    <div class="grid">
-
-        <div class="card">
-
-            <div class="card-icon">
-                🇬🇧
-            </div>
-
-            <h3>
-                English
-            </h3>
-
-            <p>
-                Professional working proficiency for
-                academic, engineering and international
-                communication.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🇩🇪
-            </div>
-
-            <h3>
-                German
-            </h3>
-
-            <p>
-                TELC B1 examination completed. Continuing
-                development toward B2-level proficiency.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🧰
-            </div>
-
-            <h3>
-                Practical Skills
-            </h3>
-
-            <p>
-                Technical documentation, workplace safety,
-                teamwork, practical problem solving and
-                industrial working environments.
-            </p>
-
-        </div>
-
+    <div class="pub-item">
+      <div class="pub-type">IEEE Journal · 2020</div>
+      <h4>Design and Analysis of a Rectangular PCB Printed Magnetorquer for Nanosatellites</h4>
+      <div class="pub-venue">IEEE Journal on Miniaturization for Air and Space Systems</div>
     </div>
 
+    <div class="pub-item">
+      <div class="pub-type">IEEE Journal · 2022</div>
+      <h4>Parametric Optimization and Analysis of Power Efficient Magnetorquer Rod Actuator for Nanosatellite</h4>
+      <div class="pub-venue">IEEE Journal on Miniaturization for Air and Space Systems</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-type">Conference · AIAA/USU 2018 · Logan, USA</div>
+      <h4>Analysis and Design of Integrated Magnetorquer Coils for Attitude Control of Nanosatellites</h4>
+      <div class="pub-venue">32nd Annual AIAA/USU SmallSat Conference</div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-type">Conference · IAA/IAF 2023</div>
+      <h4>Power Optimization and Thermal Analysis of Printed Coils, Compact Coils, and Magnetic Rods for CubeSat Attitude Control</h4>
+      <div class="pub-venue">32nd IAA Symposium on Small Satellite Missions · International Astronautical Federation</div>
+    </div>
+
+  </div>
 </section>
 
-
-<!-- =====================================================
-     CAREER OBJECTIVE
-===================================================== -->
-
-<section>
-
-    <div class="career-box">
-
-        <div class="section-title" style="margin-bottom:25px">
-
-            <div class="small">
-                Career Direction
-            </div>
-
-            <h2>
-                Where I Want to Contribute
-            </h2>
-
-        </div>
-
-        <p>
-            I am interested in graduate and entry-level
-            opportunities within the European space sector,
-            particularly positions where I can contribute
-            to spacecraft operations, satellite communications,
-            RF engineering, ground segment systems and
-            mission analysis.
-        </p>
-
-        <div class="tags" style="justify-content:center">
-
-            <span class="tag">
-                Spacecraft Operations
-            </span>
-
-            <span class="tag">
-                Satellite Operations
-            </span>
-
-            <span class="tag">
-                Ground Segment
-            </span>
-
-            <span class="tag">
-                RF Engineering
-            </span>
-
-            <span class="tag">
-                Mission Control
-            </span>
-
-            <span class="tag">
-                Satellite Communications
-            </span>
-
-            <span class="tag">
-                Systems Engineering
-            </span>
-
-        </div>
-
+<!-- EDUCATION -->
+<section id="education">
+  <div style="text-align:center; margin-bottom:40px;">
+    <div class="section-label">Academic Background</div>
+    <div class="section-title" style="color:var(--navy)">Education</div>
+    <div class="section-line" style="margin:0 auto;"></div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Master of Science</div>
+      <h3>Satellite Technology – Advanced Space Systems</h3>
+      <div class="edu-uni">Julius-Maximilians-Universität Würzburg, Germany</div>
+      <div class="edu-year">Dec 2020 – Nov 2025</div>
+      <div class="edu-thesis">Thesis: Dynamic Link Simulation for the UWE-5 CubeSat Mission<br/>Supervisor: Prof. Dr. Marco Schmidt</div>
     </div>
-
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Science</div>
+      <h3>Space Science</h3>
+      <div class="edu-uni">Institute of Space Technology (IST), Islamabad, Pakistan</div>
+      <div class="edu-year">Oct 2014 – Sep 2018</div>
+      <div class="edu-thesis">Thesis: Design of Attitude Control System for Nanosatellite</div>
+      <div class="award-badge">🥇 Vice Chancellor's Gold Medal – Best FYP</div>
+    </div>
+  </div>
 </section>
 
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section id="contact" class="contact">
-
-    <div class="section-title">
-
-        <div class="small">
-            Get In Touch
-        </div>
-
-        <h2>
-            Let's Connect
-        </h2>
-
+<!-- AWARDS -->
+<section class="awards" id="awards">
+  <div style="text-align:center; margin-bottom:40px;">
+    <div class="section-label">Recognition</div>
+    <div class="section-title" style="color:var(--navy)">Honors &amp; Awards</div>
+    <div class="section-line" style="margin:0 auto;"></div>
+  </div>
+  <div class="awards-grid">
+    <div class="award-card">
+      <div class="award-icon">🥇</div>
+      <h4>Vice Chancellor's Gold Medal</h4>
+      <p>Best Final Year Project in Department · IST Islamabad · 2018</p>
     </div>
-
-
-    <div class="contact-box">
-
-        <h3>
-            Interested in Space Systems?
-        </h3>
-
-        <p>
-            I am open to professional opportunities,
-            engineering positions, graduate roles,
-            collaborations and discussions related to
-            satellite technology and space systems.
-        </p>
-
-
-        <div class="contact-links">
-
-            <!-- REPLACE THESE WITH YOUR REAL LINKS -->
-
-            <a
-                href="mailto:YOUR-EMAIL@example.com"
-                class="btn btn-primary">
-                Email Me
-            </a>
-
-            <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                class="btn btn-secondary">
-                LinkedIn
-            </a>
-
-            <a
-                href="https://github.com/"
-                target="_blank"
-                class="btn btn-secondary">
-                GitHub
-            </a>
-
-        </div>
-
+    <div class="award-card">
+      <div class="award-icon">🥇</div>
+      <h4>Best Research Paper Gold Medal</h4>
+      <p>Outstanding Research Performance · IST Islamabad · 2018</p>
     </div>
-
+    <div class="award-card">
+      <div class="award-icon">🥈</div>
+      <h4>2nd Position – SRPC 2018</h4>
+      <p>Student Research Paper Conference · University Level</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🎓</div>
+      <h4>Merit Scholarship</h4>
+      <p>M.Sc. Space Engineering · University of Pisa, Italy · 2020</p>
+    </div>
+    <div class="award-card">
+      <div class="award-icon">🌍</div>
+      <h4>International Conferences</h4>
+      <p>Presented research in USA, Malaysia, China &amp; France</p>
+    </div>
+  </div>
 </section>
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Get In Touch</div>
+  <div class="section-title">Contact</div>
+  <div class="section-line"></div>
+  <p class="contact-sub">I am actively seeking spacecraft operations, satellite systems, and ground segment engineering roles in Germany and Europe. Feel free to reach out.</p>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:hassanali.wue@gmail.com">✉️ hassanali.wue@gmail.com</a>
+    <a class="contact-link" href="tel:+4915753594036">📞 +49 1575 3594036</a>
+    <a class="contact-link" href="https://linkedin.com/in/hassanali" target="_blank">💼 LinkedIn</a>
+    <a class="contact-link" href="#">📄 Download CV</a>
+  </div>
+</section>
 
 <footer>
-
-    <p>
-        © 2026 Hassan Ali. All rights reserved.
-    </p>
-
-    <p>
-        Satellite Technology • Space Systems • RF Engineering
-    </p>
-
+  © 2026 Hassan Ali · Spacecraft &amp; Satellite Systems Engineer · Würzburg, Germany
 </footer>
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-/* Create stars */
-
-const starsContainer = document.getElementById("stars");
-
-for (let i = 0; i < 140; i++) {
-
-    const star = document.createElement("div");
-
-    star.classList.add("star");
-
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
-
-    star.style.animationDelay =
-        Math.random() * 4 + "s";
-
-    star.style.opacity =
-        Math.random() * 0.8 + 0.2;
-
-    starsContainer.appendChild(star);
-}
-
-
-/* Smooth navigation */
-
-document.querySelectorAll("nav a").forEach(link => {
-
-    link.addEventListener("click", function(e) {
-
-        const target =
-            document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-
-            e.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-});
-
-</script>
 
 </body>
 </html>
